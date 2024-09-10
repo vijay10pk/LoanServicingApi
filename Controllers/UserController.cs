@@ -53,11 +53,11 @@ namespace LoanServicingApi.Controllers
                 var user = await _userRepository.GetUserById(id);
                 return Ok(user);
             }
-            catch(NotFoundException ex)
+            catch (NotFoundException ex)
             {
                 return NotFound(ex.Message);
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 // Log the exception or handle it as needed
                 return StatusCode(500, $"Internal Server Error: {ex.Message}");

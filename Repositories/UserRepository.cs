@@ -2,6 +2,7 @@
 using LoanServicingApi.Interfaces;
 using LoanServicingApi.Data;
 using LoanServicingApi.Models;
+using LoanServicingApi.Models.Enums;
 using LoanServicingApi.Models.DTO;
 using Microsoft.EntityFrameworkCore;
 using LoanServicingApi.Helpers;
@@ -30,12 +31,19 @@ namespace LoanServicingApi.Repositories
         {
             return await _context.Users.ToListAsync();
         }
+
         public async Task<User> GetUserById(int id)
         {
             var user = await _context.Users.FindAsync(id);
             if (user == null) throw new NotFoundException("User not found");
 
             return user;
+        }
+
+        public async Task<List<User>> GetAllLoanOfficers()
+        {
+            var loanOfficers = await _context.Users.Where(u => u.Role == UserRole.LoanOfficer).ToListAsync();
+            return loanOfficers;
         }
 
         public async Task<User> UpdateUser(UpdateUserDto updatedUserData)

@@ -9,6 +9,7 @@ namespace LoanServicingApi.Interfaces
         Task<User> EmailExists(string email);
         Task<List<User>> GetAllUsers();
         Task<User> GetUserById(int id);
+        Task<List<User>> GetAllLoanOfficers();
         Task<User> UpdateUser(UpdateUserDto updatedUserData);
         Task<User> UpdateUserById(int Id, UpdateUserDto updatedUserData);
         Task DeleteUser(int id);

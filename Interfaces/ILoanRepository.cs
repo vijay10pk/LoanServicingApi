@@ -8,6 +8,7 @@ namespace LoanServicingApi.Interfaces
 	{
         Task<List<Loan>> GetAllLoans();
         Task<Loan> GetLoanById(int id);
+        Task<List<Loan>> GetLoanByOfficerId(int officerId);
         Task<Loan> CreateLoan(Loan loanData);
         Task<LoanModification> ModifyLoan(int loanId, LoanModification modifiedLoanData);
         Task DeleteLoan(int Id);

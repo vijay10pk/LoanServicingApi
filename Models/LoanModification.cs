@@ -8,6 +8,7 @@ namespace LoanServicingApi.Models
         public int Id { get; set; }
         public int LoanId { get; set; }
         public DateTime ModificationDate { get; set; }
+        public int NewLoanOfficerId { get; set; }
         public decimal NewInterestRate { get; set; }
         public decimal NewAmount { get; set; }
         public DateTime NewEndDate { get; set; }

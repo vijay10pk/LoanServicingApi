@@ -38,6 +38,12 @@ namespace LoanServicingApi.Repositories
             return loan;
         }
 
+        public async Task<List<Loan>> GetLoanByOfficerId(int officerId)
+        {
+            var loans = await _context.Loans.Where(l => l.LoanOfficerId == officerId).ToListAsync();
+            return loans;
+        }
+
         public async Task<Loan> CreateLoan(Loan loanData)
         {
             _context.Add(loanData);
